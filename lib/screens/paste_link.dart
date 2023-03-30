@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:youtube_downloader/services/web_services.dart';
 
 class PasteLink extends StatefulWidget {
 
@@ -8,6 +9,7 @@ class PasteLink extends StatefulWidget {
 
 class _PasteLinkState extends State<PasteLink> {
   TextEditingController _controller = TextEditingController();
+  WebServices webServices = WebServices();
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,7 @@ class _PasteLinkState extends State<PasteLink> {
           ),
           ElevatedButton(onPressed: (){
             if(_controller.text.isNotEmpty){
-
+              webServices.downloadVideo(_controller.text.trim(), 'Uche youtube downloader');
             }else{
               ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('paste link')));
             }
