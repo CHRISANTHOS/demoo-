@@ -8,13 +8,14 @@ class PasteLink extends StatefulWidget {
 }
 
 class _PasteLinkState extends State<PasteLink> {
-  TextEditingController _controller = TextEditingController();
+  final TextEditingController _controller = TextEditingController();
   WebServices webServices = WebServices();
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20),
+      color: Colors.white,
+      padding: const EdgeInsets.all(20),
       child: Column(
         children: [
           TextField(
@@ -34,7 +35,7 @@ class _PasteLinkState extends State<PasteLink> {
             }else{
               ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('paste link')));
             }
-          }, child: Text('Download'))
+          }, child: const Text('Download'))
         ],
       ),
     );
